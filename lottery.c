@@ -40,6 +40,11 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Invalid arguments\n");
 		return -1;
 	}
+
+	if (7 == power_ball)
+	{
+		result = result * 2;
+	}
    
     printf("%d percent chance of winning\n", result);
 
