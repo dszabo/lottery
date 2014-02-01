@@ -50,7 +50,7 @@ int main(int argc, char** argv)
 {
     int balls[6];
     int count_balls = 0;
-    int favorite = 0;
+    int favorite = 0; // this should be a bool
 
     for (int i=1; i<argc; i++)
     {
@@ -84,10 +84,13 @@ int main(int argc, char** argv)
         goto usage_error;
     }
 
+    // the power ball is always the last one given
     int power_ball = balls[5];
 
     int result = calculate_result(balls, power_ball);
 
+    // calculate result can return -1 if the ball numbers
+    // are out of range
     if (result < 0)
     {
         goto usage_error;
