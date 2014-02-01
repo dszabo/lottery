@@ -34,7 +34,14 @@ int main(int argc, char** argv)
     int white_balls[5];
     for (int i=0; i<5; i++)
     {
-        white_balls[i] = atoi(argv[1+i]);
+		char* endptr = NULL;
+		long val = strtol(argv[1+i], &endptr, 10);
+		if (*endptr)
+		{
+			fprintf(stderr, "Invalid arguments\n");
+			return -1;
+		}
+		white_balls[i] = (int)val;
     }
 
     int result = calculate_result(white_balls, power_ball);
